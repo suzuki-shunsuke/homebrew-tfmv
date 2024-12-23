@@ -6,21 +6,21 @@ class Tfmv < Formula
   desc "Rename Terraform resources and modules and generate moved blocks. You can rename blocks flexibly using Jsonnet.
 "
   homepage "https://github.com/suzuki-shunsuke/tfmv"
-  version "0.2.3"
+  version "0.2.4"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/suzuki-shunsuke/tfmv/releases/download/v0.2.3/tfmv_darwin_amd64.tar.gz"
-      sha256 "fc3fc95a434af7e1b9bc247498d3e6df50944f377c4ca7c40d32c9ba9f6ed27c"
+      url "https://github.com/suzuki-shunsuke/tfmv/releases/download/v0.2.4/tfmv_darwin_amd64.tar.gz"
+      sha256 "e567f9d2aefb32b7dee99d7a858c5ad1c9a7307a52588c8ffe3d07aaf4ebc390"
 
       def install
         bin.install "tfmv"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/suzuki-shunsuke/tfmv/releases/download/v0.2.3/tfmv_darwin_arm64.tar.gz"
-      sha256 "3be0541c8501a48c68bc6a8cd66d27385eda10e948870836a206df311b642909"
+      url "https://github.com/suzuki-shunsuke/tfmv/releases/download/v0.2.4/tfmv_darwin_arm64.tar.gz"
+      sha256 "67df739378375fcc876c898a1f65959e0c37394334ffa78facee7f7e30fa1f5d"
 
       def install
         bin.install "tfmv"
@@ -31,8 +31,8 @@ class Tfmv < Formula
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/suzuki-shunsuke/tfmv/releases/download/v0.2.3/tfmv_linux_amd64.tar.gz"
-        sha256 "c02ba6b3e83d034cad86e007945bec44766bd84ba2cf96145787d2afaf42c7bc"
+        url "https://github.com/suzuki-shunsuke/tfmv/releases/download/v0.2.4/tfmv_linux_amd64.tar.gz"
+        sha256 "8962e5aedfb5b48c9c72f5736ea969c1a2ab8732eb9fabeb7e91e7870022fdf0"
 
         def install
           bin.install "tfmv"
@@ -41,8 +41,8 @@ class Tfmv < Formula
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/suzuki-shunsuke/tfmv/releases/download/v0.2.3/tfmv_linux_arm64.tar.gz"
-        sha256 "02366189b2a917300bfd5b4f22fc7a0d4e2b84c74abe24fb33ba501c483254b6"
+        url "https://github.com/suzuki-shunsuke/tfmv/releases/download/v0.2.4/tfmv_linux_arm64.tar.gz"
+        sha256 "84c6ae9725a85fc135314daa3b7ed2e87d1cd58651d708754ea006003e648bd0"
 
         def install
           bin.install "tfmv"
