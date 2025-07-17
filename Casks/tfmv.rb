@@ -3,7 +3,7 @@ cask "tfmv" do
   desc "Rename Terraform resources and modules and generate moved blocks. You can rename blocks flexibly using Jsonnet.
 "
   homepage "https://github.com/suzuki-shunsuke/tfmv"
-  version "0.2.7"
+  version "0.2.8"
 
   livecheck do
     skip "Auto-generated on release."
@@ -13,23 +13,29 @@ cask "tfmv" do
 
   on_macos do
     on_intel do
-      url "https://github.com/suzuki-shunsuke/tfmv/releases/download/v0.2.7/tfmv_darwin_amd64.tar.gz"
-      sha256 "487e6f770dafd52a666bae705e0d5e24cf1468092fe53b66a5534e6e35cf08a6"
+      url "https://github.com/suzuki-shunsuke/tfmv/releases/download/v0.2.8/tfmv_darwin_amd64.tar.gz"
+      sha256 "a56af29957b32aedb50530a7c7c9913f04926d6def20cebcb69f0e1037556c87"
     end
     on_arm do
-      url "https://github.com/suzuki-shunsuke/tfmv/releases/download/v0.2.7/tfmv_darwin_arm64.tar.gz"
-      sha256 "8292f18fe6b94039af4060e146bbb839533e73da604ccf6384fbc9e212013d34"
+      url "https://github.com/suzuki-shunsuke/tfmv/releases/download/v0.2.8/tfmv_darwin_arm64.tar.gz"
+      sha256 "50faf6e43f098d7a7cfe76a8e7f05527b5466fd404340bd88db57812fbccc02d"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/suzuki-shunsuke/tfmv/releases/download/v0.2.7/tfmv_linux_amd64.tar.gz"
-      sha256 "ac33f89cc526fa31036d1ad8f4f36b8644c4a669f7063ea55372e9cfaeece27d"
+      url "https://github.com/suzuki-shunsuke/tfmv/releases/download/v0.2.8/tfmv_linux_amd64.tar.gz"
+      sha256 "db7b63ac6dede5b07340c4d351c7a194dc6d4cd2f8791e3c9dbddd19d70f72bf"
     end
     on_arm do
-      url "https://github.com/suzuki-shunsuke/tfmv/releases/download/v0.2.7/tfmv_linux_arm64.tar.gz"
-      sha256 "63ad24ae21820e05e65eaf011c26a07cb2ecc88e2d0583c34c2800e1d464bbbb"
+      url "https://github.com/suzuki-shunsuke/tfmv/releases/download/v0.2.8/tfmv_linux_arm64.tar.gz"
+      sha256 "aacd239f8a1f311c4f89edb91736505682847a33b6aca0e5c8097ddf3f2a07e8"
+    end
+  end
+
+  postflight do
+    if system_command("/usr/bin/xattr", args: ["-h"]).exit_status == 0
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/tfmv"]
     end
   end
 
